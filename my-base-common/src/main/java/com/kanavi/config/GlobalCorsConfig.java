@@ -10,7 +10,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author hailan
  * @version 1.0
  * @className GlobalCorsConfig
- * @description TODO
+ * @description TODO  跨域处理
  * @date 2020-09-08 17:27
  */
 @Configuration

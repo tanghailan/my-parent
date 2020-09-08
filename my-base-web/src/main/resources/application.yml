@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: my-base-web
@@ -9,8 +12,7 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-server:
-  port: 8081
+
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
