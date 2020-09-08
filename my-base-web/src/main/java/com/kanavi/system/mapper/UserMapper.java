@@ -1,6 +1,6 @@
 package com.kanavi.system.mapper;
 
-import com.kanavi.system.entity.TbUser;
+import com.kanavi.system.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author My
- * @since 2020-09-07
+ * @since 2020-09-08
  */
-public interface TbUserMapper extends BaseMapper<TbUser> {
+public interface UserMapper extends BaseMapper<User> {
 
 }

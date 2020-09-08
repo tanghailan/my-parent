@@ -1,6 +1,6 @@
 package com.kanavi.system.service;
 
-import com.kanavi.system.entity.TbUser;
+import com.kanavi.system.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author My
- * @since 2020-09-07
+ * @since 2020-09-08
  */
-public interface TbUserService extends IService<TbUser> {
+public interface UserService extends IService<User> {
 
 }
