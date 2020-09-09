@@ -1,0 +1,46 @@
+package com.kanavi.system.controller;
+
+
+
+import com.kanavi.response.api.ResponseBean;
+import com.kanavi.system.entity.Role;
+import com.kanavi.system.service.RoleService;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * <p>
+ * 角色表 前端控制器
+ * </p>
+ *
+ * @author My
+ * @since 2020-09-09
+ */
+@RestController
+@RequestMapping("/system/role")
+public class RoleController {
+
+    @Autowired
+    private RoleService roleService;
+
+    @GetMapping
+    @ApiOperation("根据参数查询角色列表")
+    public ResponseBean findRoleList(@RequestParam(required = true,defaultValue = "1")int current,
+                                     @RequestParam(required = true,defaultValue = "7")int size){
+        List<Role> list = roleService.list();
+        Map<String,Object> map = new HashMap<>();
+        map.put("data",list);
+        return ResponseBean.success(map);
+    }
+
+}
+
