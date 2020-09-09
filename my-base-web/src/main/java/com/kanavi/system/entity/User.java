@@ -1,5 +1,6 @@
 package com.kanavi.system.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
@@ -70,5 +71,12 @@ public class User implements Serializable {
     @ApiModelProperty(value = "部门id")
     private Long departmentId;
 
+    @ApiModelProperty(value = "是否删除  0未删除  1已删除")
+    private Integer deleted;
+
+
+    @ApiModelProperty(value = "部门名称")
+    @TableField(exist = false)
+    private String name;
 
 }

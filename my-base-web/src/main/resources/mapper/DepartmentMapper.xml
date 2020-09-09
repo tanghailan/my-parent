@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kanavi.system.mapper.DepartmentMapper">
+       <select id="findDeptAndCount" resultType="com.kanavi.system.entity.Department">
+           SELECT
+               d.id,
+               d.name,
+               IFNULL(
+                       (SELECT
+                            COUNT(1)
+                        FROM
+                            tb_user u
+                        WHERE u.`department_id` = d.`id`
+                          AND u.`deleted` = 0
+                        GROUP BY department_id),
+                       0
+                   ) AS deptCount
+           FROM
+               tb_department d
+       </select>
+</mapper>
