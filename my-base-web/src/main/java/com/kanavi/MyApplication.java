@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2020-09-07 23:38
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.kanavi.system.mapper")
+@MapperScan(basePackages = {"com.kanavi.system.mapper","com.kanavi.test.mapper"})
 @EnableSwagger2
 public class MyApplication {
     public static void main(String[] args) {
