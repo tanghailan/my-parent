@@ -84,7 +84,10 @@ public class UserController {
                 queryWrapper.eq("nickname",userVo.getNickname());
             }
             if (!StringUtils.isEmpty(userVo.getUsername())){
-                queryWrapper.eq("username",userVo.getNickname());
+                queryWrapper.eq("username",userVo.getUsername());
+            }
+            if (!StringUtils.isEmpty(userVo.getSex())){
+                queryWrapper.eq("sex",userVo.getSex());
             }
         }
         return queryWrapper;
