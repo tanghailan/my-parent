@@ -12,6 +12,10 @@
     <artifactId>my-base-common</artifactId>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
         <!--数据访问层-->
         <dependency>
             <groupId>com.baomidou</groupId>

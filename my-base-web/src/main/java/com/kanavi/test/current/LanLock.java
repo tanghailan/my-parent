@@ -12,7 +12,7 @@ import java.util.concurrent.locks.LockSupport;
  * @version 1.0
  * @className LanLock
  * @description TODO 公平锁
- * @date 2020-09-10 18:40
+ * @date 2020-09-11 12:06
  */
 @Data
 public class LanLock {
@@ -50,7 +50,7 @@ public class LanLock {
         }
         Thread current = Thread.currentThread();
         waiters.add(current);
-        for (; ; ) {
+        for (; ; ) { //自旋
 //           Thread.yield();
             if ((current == waiters.peek()) && aquire()) {
                 waiters.poll();//T2从队列中移除
@@ -78,7 +78,6 @@ public class LanLock {
 
     public final boolean compareAndSwapState(int except, int update) {
         return unsafe.compareAndSwapInt(this, stateOffset, except, update);
-
     }
 
     private static final Unsafe unsafe = UnsafeInstance.reflectGetUnsafe();
