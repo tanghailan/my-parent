@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kanavi.system.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.kanavi.system.vo.UserVo;
 
 /**
  * <p>
@@ -16,4 +17,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserService extends IService<User> {
     IPage<User> findUserPage(Page<User> page,QueryWrapper<User> wrapper);
+    int insert(User user);
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +68,16 @@ public class UserController {
         map.put("total",total);
         map.put("data",records);
         return ResponseBean.success(map);
+    }
+
+    @PostMapping("/addUser")
+    @ApiOperation("新增用户")
+    public ResponseBean addUser(@RequestBody User user){
+        int insert = userService.insert(user);
+        if (insert > 0){
+            return ResponseBean.success(insert);
+        }
+        return ResponseBean.error("新增失败！");
     }
 
 

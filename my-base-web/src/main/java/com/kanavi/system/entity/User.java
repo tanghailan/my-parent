@@ -48,13 +48,13 @@ public class User implements Serializable {
     private String phoneNumber;
 
     @ApiModelProperty(value = "状态 0锁定 1有效")
-    private Integer status;
+    private Integer status = 0;
 
     @ApiModelProperty(value = "创建时间")
-    private Date createTime;
+    private Date createTime = new Date();
 
     @ApiModelProperty(value = "修改时间")
-    private Date modifiedTime;
+    private Date modifiedTime = new Date();
 
     @ApiModelProperty(value = "性别 0男 1女 2保密")
     private Integer sex;
@@ -69,14 +69,14 @@ public class User implements Serializable {
     private String password;
 
     @ApiModelProperty(value = "生日")
-    @JsonFormat(pattern = "yyyy年MM月dd日",timezone = "GMT+8")
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     private Date birth;
 
     @ApiModelProperty(value = "部门id")
     private Long departmentId;
 
     @ApiModelProperty(value = "是否删除  0未删除  1已删除")
-    private Integer deleted;
+    private Integer deleted = 0;
 
 
     @ApiModelProperty(value = "部门名称")

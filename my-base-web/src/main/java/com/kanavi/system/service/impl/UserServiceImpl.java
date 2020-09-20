@@ -24,4 +24,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public IPage<User> findUserPage(Page<User> page, QueryWrapper<User> wrapper) {
         return this.baseMapper.findUserPage(page,wrapper);
     }
+
+    @Override
+    public int insert(User user) {
+        return this.baseMapper.insert(user);
+    }
 }
