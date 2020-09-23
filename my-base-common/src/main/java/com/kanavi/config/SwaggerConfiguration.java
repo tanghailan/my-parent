@@ -35,7 +35,7 @@ public class SwaggerConfiguration {
         return new ApiInfoBuilder()
                 .title("my管理系统后台说明文档")
                 .description("my管理系统后台说明文档")
-                .termsOfServiceUrl("http://47.112.98.16:8080/")
+                .termsOfServiceUrl("http://127.0.0.1:8080/")
                 .contact("gdx_lwx@qq.com")
                 .version("1.0")
                 .build();
