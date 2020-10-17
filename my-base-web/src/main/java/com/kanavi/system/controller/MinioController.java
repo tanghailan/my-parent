@@ -4,6 +4,10 @@ import com.kanavi.response.api.ResponseBean;
 import com.kanavi.system.dto.MinioUploadDto;
 import io.minio.MinioClient;
 import io.minio.policy.PolicyType;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +32,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("/minio")
 @Slf4j
+@Api(value = "MinioController", tags = "上传文件控制器")
 public class MinioController {
 
     @Value("${minio.endpoint}")
@@ -40,6 +45,10 @@ public class MinioController {
     private String SECRET_KEY;
 
     @PostMapping(value = "/upload")
+    @ApiOperation(value = "上传文件", notes = "file不能为空")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "file", value = "文件"),
+    })
     public ResponseBean upload(@RequestParam("file") MultipartFile file) {
         try {
             //创建一个MinIO的Java客户端
@@ -69,6 +78,10 @@ public class MinioController {
         return ResponseBean.error("上传发生错误!");
     }
 
+    @ApiOperation(value = "上传文件", notes = "file不能为空")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "objectName", value = "文件名称"),
+    })
     @PostMapping(value = "/delete")
     public ResponseBean delete(@RequestParam("objectName") String objectName) {
         try {

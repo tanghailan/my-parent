@@ -11,11 +11,14 @@ import com.kanavi.system.entity.User;
 import com.kanavi.system.service.UserService;
 import com.kanavi.system.vo.UserVo;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -31,13 +34,18 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/system/user")
-@Api(tags ="UserController",description = "用户管理模块")
+@Api(value = "UserController", tags = "用户管理模块")
 public class UserController {
-    @Autowired
+    @Resource
     private UserService userService;
 
     @GetMapping
-    @ApiOperation("根据参数查询用户列表")
+    @ApiOperation(value = "根据参数查询用户列表", notes = "分页查询列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "current", value = "当前页"),
+            @ApiImplicitParam(name = "size", value = "页数"),
+            @ApiImplicitParam(name = "departMentId", value = "部门id"),
+    })
     public ResponseBean findUserList(@RequestParam(required = true,defaultValue = "1")int current,
                                      @RequestParam(required = true,defaultValue = "7")int size,
                                      @RequestParam(required = false)int departMentId){
@@ -55,7 +63,16 @@ public class UserController {
 
 
     @PostMapping("/findUserPage")
-    @ApiOperation("根据参数查询用户列表")
+    @ApiOperation(value = "根据参数查询用户列表", notes = "分页查询列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "current", value = "当前页"),
+            @ApiImplicitParam(name = "size", value = "页数"),
+            @ApiImplicitParam(name = "username", value = "用户名"),
+            @ApiImplicitParam(name = "nickname", value = "昵称"),
+            @ApiImplicitParam(name = "email", value = "邮箱"),
+            @ApiImplicitParam(name = "sex", value = "性别"),
+            @ApiImplicitParam(name = "departmentId", value = "部门id"),
+    })
     public ResponseBean findUserPage(@RequestParam(required = true,defaultValue = "1")int current,
                                      @RequestParam(required = true,defaultValue = "7")int size,
                                      @RequestBody UserVo userVo){
@@ -71,7 +88,14 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    @ApiOperation("新增用户")
+    @ApiOperation(value = "新增用户", notes = "分页查询列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "username", value = "用户名"),
+            @ApiImplicitParam(name = "nickname", value = "昵称"),
+            @ApiImplicitParam(name = "email", value = "邮箱"),
+            @ApiImplicitParam(name = "sex", value = "性别"),
+            @ApiImplicitParam(name = "departmentId", value = "部门id"),
+    })
     public ResponseBean addUser(@RequestBody User user){
         int insert = userService.insert(user);
         if (insert > 0){

@@ -5,6 +5,7 @@ package com.kanavi.system.controller;
 import com.kanavi.response.api.ResponseBean;
 import com.kanavi.system.entity.Role;
 import com.kanavi.system.service.RoleService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,9 +29,10 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/system/role")
+@Api(value = "RoleController", tags = "角色管理")
 public class RoleController {
 
-    @Autowired
+    @Resource
     private RoleService roleService;
 
     @GetMapping

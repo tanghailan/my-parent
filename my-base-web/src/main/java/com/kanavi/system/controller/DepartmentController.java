@@ -26,7 +26,7 @@ import java.util.Map;
  * @author My
  * @since 2020-09-09
  */
-@Api(value = "部门管理")
+@Api(value = "DepartmentController", tags = "部门管理")
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
