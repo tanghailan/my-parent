@@ -1,16 +1,23 @@
 package com.kanavi.test.generator;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class demo {
     public static void main(String[] args) {
-        int[][] arr =  new int [][]{{1,4},{2,5},{8,9}};
-        arr = jiaoji(arr);
-        for (int[] ints : arr) {
-            System.out.println(Arrays.toString(ints));
-        }
+        BigDecimal a =new BigDecimal(0.1);
+        System.out.println("a values is:"+a);
+        System.out.println("=====================");
+        BigDecimal b =new BigDecimal(0.01);
+        System.out.println("b values is:"+b);
+        System.out.println(b.scale());
+//        int[][] arr =  new int [][]{{1,4},{2,5},{8,9}};
+//        arr = jiaoji(arr);
+//        for (int[] ints : arr) {
+//            System.out.println(Arrays.toString(ints));
+//        }
     }
 
     public static int[][] jiaoji(int[][] arr) {
