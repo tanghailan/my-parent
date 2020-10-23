@@ -10,7 +10,7 @@ spring:
     name: my-base-web
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/my?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     password: root
   jackson:
@@ -33,3 +33,7 @@ minio:
   bucketName: kanavi-photos #存储桶名称
   accessKey: minioadmin #访问的key
   secretKey: minioadmin #访问的秘钥
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: D:/logs
