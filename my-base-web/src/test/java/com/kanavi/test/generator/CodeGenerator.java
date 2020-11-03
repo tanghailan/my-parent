@@ -51,7 +51,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir(scanner("请输入你的项目路径") + "/src/main/java");
-        gc.setAuthor("My");
+        gc.setAuthor("tanghailan");
         gc.setOpen(false);
         //实体属性 Swagger2 注解
         gc.setSwagger2(true);

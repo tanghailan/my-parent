@@ -30,4 +30,11 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage());
         return ResponseBean.error(e.getMessage());
     }
+
+    @ResponseBody
+    @ExceptionHandler(value = NullPointerException.class)
+    public ResponseBean handleNullPointException(NullPointerException e) {
+        log.error(e.getMessage());
+        return ResponseBean.error(e.getMessage());
+    }
 }

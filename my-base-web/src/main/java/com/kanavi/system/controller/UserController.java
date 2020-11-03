@@ -39,27 +39,27 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping
-    @ApiOperation(value = "根据参数查询用户列表", notes = "分页查询列表")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "current", value = "当前页"),
-            @ApiImplicitParam(name = "size", value = "页数"),
-            @ApiImplicitParam(name = "departMentId", value = "部门id"),
-    })
-    public ResponseBean findUserList(@RequestParam(required = true,defaultValue = "1")int current,
-                                     @RequestParam(required = true,defaultValue = "7")int size,
-                                     @RequestParam(required = false)int departMentId){
-        Page<User> userPage = new Page<>(current,size);
-        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(User::getDepartmentId,departMentId);
-        Page<User> page = userService.page(userPage,queryWrapper);
-        long total = page.getTotal();
-        List<User> records = page.getRecords();
-        Map<String,Object> map = new HashMap<>();
-        map.put("total",total);
-        map.put("data",records);
-        return ResponseBean.success(map);
-    }
+//    @GetMapping
+//    @ApiOperation(value = "根据参数查询用户列表", notes = "分页查询列表")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "current", value = "当前页"),
+//            @ApiImplicitParam(name = "size", value = "页数"),
+//            @ApiImplicitParam(name = "departMentId", value = "部门id"),
+//    })
+//    public ResponseBean findUserList(@RequestParam(required = true,defaultValue = "1")int current,
+//                                     @RequestParam(required = true,defaultValue = "7")int size,
+//                                     @RequestParam(required = false)int departMentId){
+//        Page<User> userPage = new Page<>(current,size);
+//        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(User::getDepartmentId,departMentId);
+//        Page<User> page = userService.page(userPage,queryWrapper);
+//        long total = page.getTotal();
+//        List<User> records = page.getRecords();
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("total",total);
+//        map.put("data",records);
+//        return ResponseBean.success(map);
+//    }
 
 
     @PostMapping("/findUserPage")
