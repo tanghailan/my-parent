@@ -97,11 +97,8 @@ public class UserController {
             @ApiImplicitParam(name = "departmentId", value = "部门id"),
     })
     public ResponseBean addUser(@RequestBody User user){
-        int insert = userService.insert(user);
-        if (insert > 0){
-            return ResponseBean.success(insert);
-        }
-        return ResponseBean.error("新增失败！");
+         userService.insert(user);
+        return ResponseBean.success("新增成功！");
     }
 
 

@@ -38,7 +38,7 @@ public class DepartmentController {
     public ResponseBean findDeptAndCount(){
         List<Department> deptAndCount = departmentService.findDeptAndCount();
         if (deptAndCount.size()==0){
-            throw  new ApiException(ResultCode.DEPT_NOT_FOUND_EXCEPTION);
+            throw  new ApiException(ResultCode.DEPARTMENT_NOT_EXIST);
         }
         Map<String,Object> map = new HashMap<>();
         map.put("departments",deptAndCount);

@@ -78,7 +78,7 @@ public class MinioController {
         return ResponseBean.error("上传发生错误!");
     }
 
-    @ApiOperation(value = "上传文件", notes = "file不能为空")
+    @ApiOperation(value = "删除文件", notes = "file不能为空")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "objectName", value = "文件名称"),
     })

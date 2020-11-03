@@ -1,39 +1,24 @@
 server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 1000
+      min-spare: 30
   port: 8081
-
 spring:
-  servlet:
-    multipart:
-      enabled: true #开启文件上传
-      max-file-size: 10MB #限制文件上传大小为10M
   application:
     name: my-base-web
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/my?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+  profiles:
+    active: dev
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 100MB #限制文件上传大小为100M
+      max-request-size: 100MB
+      enabled: true #开启文件上传
 
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      logic-delete-field: deleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-  mapper-locations: classpath*:/mapper/*.xml
-  type-aliases-package: com.kanavi.system.entity
-# MinIO对象存储相关配置
-minio:
-  endpoint: http://127.0.0.1:9000 #MinIO服务所在地址
-  bucketName: kanavi-photos #存储桶名称
-  accessKey: minioadmin #访问的key
-  secretKey: minioadmin #访问的秘钥
-logging:
-  config: classpath:logback-spring.xml
-  file:
-    path: D:/logs

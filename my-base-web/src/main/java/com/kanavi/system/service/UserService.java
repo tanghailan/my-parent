@@ -17,5 +17,5 @@ import com.kanavi.system.vo.UserVo;
  */
 public interface UserService extends IService<User> {
     IPage<User> findUserPage(Page<User> page,QueryWrapper<User> wrapper);
-    int insert(User user);
+    void insert(User user);
 }
