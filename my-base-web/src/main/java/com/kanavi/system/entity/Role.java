@@ -22,7 +22,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("tb_role")
 @ApiModel(value="Role对象", description="角色表")
-public class Role implements Serializable {
+public class Role extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,11 +36,11 @@ public class Role implements Serializable {
     @ApiModelProperty(value = "角色描述")
     private String remark;
 
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    private Date modifiedTime;
+//    @ApiModelProperty(value = "创建时间")
+//    private Date createTime;
+//
+//    @ApiModelProperty(value = "修改时间")
+//    private Date modifiedTime;
 
     @ApiModelProperty(value = "是否可用,0:不可用，1：可用")
     private Integer status;

@@ -1,10 +1,8 @@
 package com.kanavi.system.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -25,7 +23,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("tb_user")
 @ApiModel(value="User对象", description="用户表")
-public class User implements Serializable {
+public class User extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -50,11 +48,13 @@ public class User implements Serializable {
     @ApiModelProperty(value = "状态 0锁定 1有效")
     private Integer status = 0;
 
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime = new Date();
-
-    @ApiModelProperty(value = "修改时间")
-    private Date modifiedTime = new Date();
+//    @ApiModelProperty(value = "创建时间")
+//    @TableField(fill = FieldFill.INSERT)
+//    private Date createTime;
+//
+//    @ApiModelProperty(value = "修改时间")
+//    @TableField(fill = FieldFill.INSERT_UPDATE)
+//    private Date modifiedTime;
 
     @ApiModelProperty(value = "性别 0男 1女 2保密")
     private Integer sex;

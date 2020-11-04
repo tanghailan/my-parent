@@ -23,7 +23,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @TableName("tb_department")
 @ApiModel(value="Department对象", description="")
-public class Department implements Serializable {
+public class Department extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,11 +39,11 @@ public class Department implements Serializable {
     @ApiModelProperty(value = "办公室地点")
     private String address;
 
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    private Date modifiedTime;
+//    @ApiModelProperty(value = "创建时间")
+//    private Date createTime;
+//
+//    @ApiModelProperty(value = "修改时间")
+//    private Date modifiedTime;
 
     @ApiModelProperty(value = "系主任id，关联用户表")
     private Long mgrId;
