@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -29,7 +30,7 @@ import javax.annotation.Resource;
  * 用户表 服务实现类
  * </p>
  *
- * @author My
+ * @author tanghailan
  * @since 2020-09-08
  */
 @Service
@@ -49,6 +50,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Override
+    @Transactional
     public void insert(User user) {
         String username = user.getUsername();
         Long departmentId = user.getDepartmentId();

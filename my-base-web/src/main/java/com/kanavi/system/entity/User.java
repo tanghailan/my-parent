@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
  * 用户表
  * </p>
  *
- * @author My
+ * @author tanghailan
  * @since 2020-09-08
  */
 @Data

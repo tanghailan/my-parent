@@ -3,7 +3,7 @@ package com.kanavi.system.vo;
 import lombok.Data;
 
 /**
- * @author hailan
+ * @author tanghailan
  * @version 1.0
  * @className UserVo
  * @description TODO

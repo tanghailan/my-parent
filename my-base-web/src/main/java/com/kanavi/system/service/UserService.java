@@ -12,7 +12,7 @@ import com.kanavi.system.vo.UserVo;
  * 用户表 服务类
  * </p>
  *
- * @author My
+ * @author tanghailan
  * @since 2020-09-08
  */
 public interface UserService extends IService<User> {

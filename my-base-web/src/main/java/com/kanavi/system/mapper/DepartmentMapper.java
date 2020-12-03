@@ -10,7 +10,7 @@ import java.util.List;
  * Mapper 接口
  * </p>
  *
- * @author My
+ * @author tanghailan
  * @since 2020-09-09
  */
 public interface DepartmentMapper extends BaseMapper<Department> {
