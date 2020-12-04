@@ -1,7 +1,7 @@
 package com.kanavi.test.generator;
 
-/**
- * @author hailan
+/*
+ * @author tanghailan
  * @version 1.0
  * @className Generator
  * @description TODO
