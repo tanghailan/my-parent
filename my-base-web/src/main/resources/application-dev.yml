@@ -5,8 +5,8 @@ spring:
     username: root
     password: root
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       logic-delete-field: deleted
@@ -21,6 +21,11 @@ minio:
   accessKey: minioadmin #访问的key
   secretKey: minioadmin #访问的秘钥
 logging:
+  level:
+    com:
+      kanavi:
+        system:
+          mapper: trace
   config: classpath:logback-spring.xml
   file:
     path: D:/logs

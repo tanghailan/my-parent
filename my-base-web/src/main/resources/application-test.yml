@@ -21,6 +21,11 @@ minio:
   accessKey: minioadmin #访问的key
   secretKey: minioadmin #访问的秘钥
 logging:
+  level:
+    com:
+      kanavi:
+        system:
+          mapper: trace
   config: classpath:logback-spring.xml
   file:
     path: D:/logs
