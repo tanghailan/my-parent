@@ -48,15 +48,15 @@ public class ResponseBean {
     public static ResponseBean success(Object data) {
         ResponseBean responseBean = new ResponseBean();
         responseBean.setData(data);
-        responseBean.setCode(200);
-        responseBean.setMsg("成功");
+        responseBean.setCode(ResultCode.SUCCESS.getCode());
+        responseBean.setMsg(ResultCode.SUCCESS.getMessage());
         return responseBean;
     }
 
     public static ResponseBean success(String message) {
         ResponseBean responseBean = new ResponseBean();
         responseBean.setData(null);
-        responseBean.setCode(200);
+        responseBean.setCode(ResultCode.SUCCESS.getCode());
         responseBean.setMsg(message);
         return responseBean;
     }
@@ -64,8 +64,8 @@ public class ResponseBean {
     public static ResponseBean success() {
         ResponseBean responseBean = new ResponseBean();
         responseBean.setData(null);
-        responseBean.setCode(200);
-        responseBean.setMsg("Success");
+        responseBean.setCode(ResultCode.SUCCESS.getCode());
+        responseBean.setMsg(ResultCode.SUCCESS.getMessage());
         return responseBean;
     }
 }
